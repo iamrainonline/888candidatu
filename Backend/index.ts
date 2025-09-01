@@ -1,13 +1,22 @@
 import express from "express";
-import type { Request, Response } from "express"; // ← tip-only import
+import cors from "cors";
+import casinoRouter from "./routes/casino.ts";
 
 const app = express();
 const port = 3000;
 
-app.get("/", (req: Request, res: Response) => {
+// --- Middleware ---
+app.use(cors());
+app.use(express.json());
+
+// --- Routes ---
+app.use("/api/casino", casinoRouter);
+
+app.get("/", (req, res) => {
   res.send("Hello from TypeScript + Express!");
 });
 
+// --- Start server ---
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running at http://localhost:3000`);
 });
