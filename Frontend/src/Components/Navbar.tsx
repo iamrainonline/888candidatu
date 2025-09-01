@@ -6,7 +6,9 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar shadow-lg">
       <div className="navbar-container">
-        <div className="logo">🎰 MyCasino</div>
+        <NavLink to="/">
+          <div className="logo">Candidatu 888 Sparkware</div>
+        </NavLink>
         <ul className="nav-links">
           <li>
             <NavLink
